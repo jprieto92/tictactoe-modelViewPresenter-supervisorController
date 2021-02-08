@@ -57,6 +57,32 @@ public class Game {
     public Error getTargetMoveTokenError(Coordinate origin, Coordinate target) {
         return this.turn.getTargetMoveTokenError(origin, target);
     }
+    
+    public Board getBoard()
+    {
+    	return this.board;
+    }
+    
+    public void putToken(Coordinate coordinate)
+    {
+    	this.turn.putToken(coordinate);
+    }
+    
+    public void moveToken(Coordinate origin, Coordinate target) {
+        this.turn.moveToken(origin, target);
+    }
+    
+    public Error getPutTokenError(Coordinate coordinate) {
+        return this.turn.getPutTokenError(coordinate);
+    }
+    
+    public Error getOriginMoveTokenError(Coordinate coordinate) {
+        return this.turn.getOriginMoveTokenError(coordinate);
+    }
+
+    public Error getTargetMoveTokenError(Coordinate origin, Coordinate target) {
+        return this.turn.getTargetMoveTokenError(origin, target);
+    }
 
     @Override
     public boolean equals(Object obj) {

@@ -1,7 +1,10 @@
 package jprieto.tictactoe.views;
 
 import jprieto.tictactoe.models.Player;
+<<<<<<< HEAD
 import jprieto.tictactoe.views.Message;
+=======
+>>>>>>> First draft with MVP supervisor controller implemented
 
 public class PlayerView {
 

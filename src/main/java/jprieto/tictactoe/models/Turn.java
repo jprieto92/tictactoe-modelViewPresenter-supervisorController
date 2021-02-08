@@ -38,6 +38,26 @@ public class Turn {
     Color getActiveColor() {
         return this.getActivePlayer().getColor();
     }
+    
+    void putToken(Coordinate coordinate) {
+        this.getActivePlayer().putToken(coordinate);
+    }
+    
+    void moveToken(Coordinate origin, Coordinate target) {
+        this.getActivePlayer().moveToken(origin, target);
+    }
+    
+    Error getPutTokenError(Coordinate coordinate) {
+        return this.getActivePlayer().getPutTokenError(coordinate);
+    }
+    
+    Error getOriginMoveTokenError(Coordinate coordinate) {
+        return this.getActivePlayer().getOriginMoveTokenError(coordinate);
+    }
+
+    Error getTargetMoveTokenError(Coordinate origin, Coordinate target) {
+        return this.getActivePlayer().getTargetMoveTokenError(origin, target);
+    }
 
     boolean areAllTokensOnBoard() {
         return this.getActivePlayer().areAllTokensOnBoard();

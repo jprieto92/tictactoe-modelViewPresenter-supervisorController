@@ -19,7 +19,11 @@ public class Player {
         this.putTokens = 0;
     }
 
+<<<<<<< HEAD
     boolean areAllTokensOnBoard() {
+=======
+    public boolean areAllTokensOnBoard() {
+>>>>>>> First draft with MVP supervisor controller implemented
         return this.putTokens == Coordinate.DIMENSION;
     }
 
