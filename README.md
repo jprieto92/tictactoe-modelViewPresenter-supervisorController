@@ -18,10 +18,16 @@
 5. [Vista de Despliegue/Física](#vista-de-desplieguefísica)
 6. [Vista de Procesos](#vista-de-procesos)
 
+<p align="center">
+<img width="300" height="300" src="docs/images/tictactoe.png">
+</p>
+
 # Requisitos 1. *Básica*
 
-| * _Funcionalidad: **Básica**_ <br/> * _Interfaz: **Texto**_ <br/> * _Distribución: **Standalone**_ <br/> * _Persistencia: **No**_  | ![Tictactoe](docs/images/tictactoe.png) |  
-| :------- | :------: |
+* **Functionality**: Basica
+* **Interface**: Texto
+* **Distribution**: Standalone
+* **Persistence**: No
 
 # Vista de Lógica/Diseño
   - Arquitectura Documento/Vista mediante **Patrón de Vista Separada** y **Patrón de Doble Despacho**

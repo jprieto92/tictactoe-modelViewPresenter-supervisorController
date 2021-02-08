@@ -1,6 +1,8 @@
 package jprieto.tictactoe.models;
 
 import jprieto.tictactoe.types.Color;
+import jprieto.tictactoe.types.Coordinate;
+import jprieto.tictactoe.types.Error;
 
 public class Turn {
 
@@ -17,17 +19,10 @@ public class Turn {
     }
 
     void reset() {
-        this.activePlayer = 0;
-    }
-
-    void setUsers(int numberUsers) {
         for (int i = 0; i < Turn.NUMBER_PLAYERS; i++) {
-            if (i < numberUsers) {
-                this.players[i] = new UserPlayer(Color.get(i), this.board);
-            } else {
-                this.players[i] = new MachinePlayer(Color.get(i), this.board);
-            }
+            this.players[i] = new Player(Color.get(i), this.board);
         }
+        this.activePlayer = 0;
     }
 
     void next() {
@@ -42,6 +37,30 @@ public class Turn {
 
     Color getActiveColor() {
         return this.getActivePlayer().getColor();
+    }
+
+    boolean areAllTokensOnBoard() {
+        return this.getActivePlayer().areAllTokensOnBoard();
+    }
+
+    void putToken(Coordinate coordinate) {
+        this.getActivePlayer().putToken(coordinate);
+    }
+
+    Error getPutTokenError(Coordinate coordinate) {
+        return this.getActivePlayer().getPutTokenError(coordinate);
+    }
+
+    void moveToken(Coordinate origin, Coordinate target) {
+        this.getActivePlayer().moveToken(origin, target);
+    }
+
+    Error getOriginMoveTokenError(Coordinate coordinate) {
+        return this.getActivePlayer().getOriginMoveTokenError(coordinate);
+    }
+
+    Error getTargetMoveTokenError(Coordinate origin, Coordinate target) {
+        return this.getActivePlayer().getTargetMoveTokenError(origin, target);
     }
 
 }

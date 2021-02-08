@@ -1,7 +1,7 @@
 package jprieto.tictactoe.models;
 
-import jprieto.tictactoe.types.Color;
 import jprieto.tictactoe.types.Coordinate;
+import jprieto.tictactoe.types.Error;
 
 public class Game {
 
@@ -22,24 +22,40 @@ public class Game {
         this.turn.next();
     }
 
-    public void setUsers(int numberUsers) {
-        this.turn.setUsers(numberUsers);
+    public Player getActivePlayer() {
+        return this.turn.getActivePlayer();
     }
 
-    public Color getActiveColor() {
-        return this.turn.getActiveColor();
+    public Board getBoard() {
+        return this.board;
     }
 
     public boolean isTicTacToe() {
         return this.board.isTicTacToe(this.turn.getActiveColor());
     }
 
-    public Color getColor(Coordinate coordinate) {
-        return this.board.getColor(coordinate);
+    public boolean areAllTokensOnBoard() {
+        return this.turn.areAllTokensOnBoard();
     }
 
-    public Player getActivePlayer() {
-        return this.turn.getActivePlayer();
+    public void putToken(Coordinate coordinate) {
+        this.turn.putToken(coordinate);
+    }
+
+    public Error getPutTokenError(Coordinate coordinate) {
+        return this.turn.getPutTokenError(coordinate);
+    }
+
+    public void moveToken(Coordinate origin, Coordinate target) {
+        this.turn.moveToken(origin, target);
+    }
+
+    public Error getOriginMoveTokenError(Coordinate coordinate) {
+        return this.turn.getOriginMoveTokenError(coordinate);
+    }
+
+    public Error getTargetMoveTokenError(Coordinate origin, Coordinate target) {
+        return this.turn.getTargetMoveTokenError(origin, target);
     }
 
     @Override
@@ -57,11 +73,8 @@ public class Game {
         } else if (!board.equals(other.board))
             return false;
         if (turn == null) {
-            if (other.turn != null)
-                return false;
-        } else if (!turn.equals(other.turn))
-            return false;
-        return true;
+            return other.turn == null;
+        } else return turn.equals(other.turn);
     }
 
 }

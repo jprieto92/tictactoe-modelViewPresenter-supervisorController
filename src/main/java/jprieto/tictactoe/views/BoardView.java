@@ -1,22 +1,29 @@
 package jprieto.tictactoe.views;
 
-import jprieto.tictactoe.models.Game;
+import jprieto.tictactoe.models.Board;
 import jprieto.tictactoe.types.Coordinate;
+import jprieto.tictactoe.views.Message;
 import jprieto.utils.views.Console;
 
-class BoardView {
+public class BoardView {
 
-    void write(Game game) {
-        Message.HORIZONTAL_LINE.writeln();
+    private Board board;
+
+    BoardView(Board board) {
+        this.board = board;
+    }
+
+    public void write() {
+        new MessageView().writeln(Message.HORIZONTAL_LINE);
         for (int i = 0; i < Coordinate.DIMENSION; i++) {
-            Message.VERTICAL_LINE.write();
+            new MessageView().write(Message.VERTICAL_LINE);
             for (int j = 0; j < Coordinate.DIMENSION; j++) {
-                new ColorView().write(game.getColor(new Coordinate(i, j)));
-                Message.VERTICAL_LINE.write();
+                new ColorView().write(this.board.getColor(new Coordinate(i, j)));
+                new MessageView().write(Message.VERTICAL_LINE);
             }
             Console.getInstance().writeln();
         }
-        Message.HORIZONTAL_LINE.writeln();
+        new MessageView().writeln(Message.HORIZONTAL_LINE);
     }
 
 }

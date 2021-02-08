@@ -1,13 +1,13 @@
 package jprieto.tictactoe.models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jprieto.tictactoe.types.Color;
 import jprieto.tictactoe.types.Coordinate;
 import jprieto.utils.models.Direction;
 
-class Board {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Board {
 
     private Color[][] colors;
 
@@ -40,7 +40,7 @@ class Board {
         this.putToken(target, color);
     }
 
-    Color getColor(Coordinate coordinate) {
+    public Color getColor(Coordinate coordinate) {
         assert !coordinate.isNull();
 
         return this.colors[coordinate.getRow()][coordinate.getColumn()];
